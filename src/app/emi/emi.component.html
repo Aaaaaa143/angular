@@ -1,0 +1,48 @@
+<div class="container">
+
+    <div class="row mt-5">
+        <div class="col-3"></div>
+        <div class="col-6 p-5 border border-2 shadow rounded">
+            <h3 class="text-center fw-bolder my-2">EMI CALCULATOR</h3>
+            <form action="" [formGroup]="emiForm" (ngSubmit)="emiCalc()">
+                <div class="mb-4">
+                    <label for="">loan amount</label>
+                    <input type="text" placeholder="enter loan amount" class="form-control" formControlName="amount">
+                    <span class="form-text text-danger" *ngIf="amount?.touched && amount?.invalid">enter the correct amount</span>
+                </div>
+                <div class="mb-4">
+                    <label for="">loan interest rate</label>
+                    <input type="text" placeholder="enter interest rate" class="form-control" formControlName="interest">
+                    <span class="form-text text-danger" *ngIf="interest?.touched && interest?.invalid">enter the interest rate</span>
+                </div>
+                <div class="mb-4">
+                    <label for="">Tenure</label>
+                    <input type="text" placeholder="enter loan tenure" class="form-control" formControlName="tenure">
+                    <span class="form-text text-danger" *ngIf="tenure?.touched && tenure?.invalid">enter the tenure</span>
+                </div>
+                <div class="mb-4 d-flex justify-content-center">
+                    <button type="submit" class="btn btn-success" [disabled]="emiForm.invalid">calculate</button>
+
+                </div>
+                
+            </form>
+
+            <div class="d-flex justify-content-around">
+                <div >
+                    <h3 class="fw-bolder">MonthlyEmi</h3>
+                    <p class="text-center">{{emi}}</p>
+                </div>
+                <div>
+                    <h3 class="fw-bolder">TotalAmount</h3>
+                    <p class="text-center">{{totalPayableAmount}}</p>
+                </div>
+                <div >
+                    <h3 class="fw-bolder">Total Interest</h3>
+                    <p class="text-center">{{TotalInterestAmount}}</p>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-3"></div>
+    </div>
+</div>
